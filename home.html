@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perpustakaan Kopi</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f5f6fa;
+        color: #2f3640;
+      }
+      .sidebar {
+        width: 220px;
+        background-color: #2f3640;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 20px;
+        color: #fff;
+      }
+      .sidebar h2 {
+        font-size: 20px;
+        margin-bottom: 30px;
+      }
+      .sidebar a {
+        display: block;
+        color: #dcdde1;
+        text-decoration: none;
+        margin: 15px 0;
+        cursor: pointer;
+      }
+      .main {
+        margin-left: 240px;
+        padding: 20px;
+      }
+      .header {
+        margin: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .search-bar {
+        flex-grow: 1;
+        margin-left: 20px;
+      }
+      .search-bar input {
+        width: 85%;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+      }
+      .category-buttons {
+        margin-bottom: 20px;
+      }
+      .category-buttons button {
+        margin: 15px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: #dcdde1;
+        color: #2f3640;
+      }
+      .category-buttons button.active {
+        background-color: #e84118;
+        color: #fff;
+      }
+      .book-list {
+        margin: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .book-card {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 15px;
+        width: 200px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .book-card h4 {
+        margin: 10px 0 5px;
+      }
+      .book-card p {
+        margin: 0;
+        font-size: 14px;
+        color: #718093;
+      }
+      .not-found {
+        font-size: 18px;
+        color: #e84118;
+        font-weight: bold;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2><i class="fa-solid fa-book"></i> Perpustakaan</h2>
+      <a href="home.html">Home</a>
+      <a href="bukufavorit.html">Buku Favorit</a>
+      <a href="peminjaman.html">Peminjaman</a>
+      <a href="akun.html">Akun</a>
+      <a href="bantuan.html">Bantuan</a>
+    </div>
+
+    <div class="main">
+      <div class="header">
+        <h1>Semua Buku</h1>
+        <div class="search-bar">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Cari Judul/Pengarang/ISBN..."
+          />
+        </div>
+      </div>
+
+      <div class="category-buttons">
+        <button class="filter-btn active" data-category="all">Semua</button>
+        <button class="filter-btn" data-category="fiksi">Fiksi</button>
+        <button class="filter-btn" data-category="ekonomi">Ekonomi</button>
+        <button class="filter-btn" data-category="sejarah">Sejarah</button>
+        <button class="filter-btn" data-category="ensiklopedia">
+          Ensiklopedia
+        </button>
+      </div>
+
+      <div class="book-list" id="bookList">
+        <div class="book-card" data-category="fiksi">
+          <h4>Novel Hujan</h4>
+          <p>Tere Liye</p>
+        </div>
+        <div class="book-card" data-category="ekonomi">
+          <h4>Ekonomi Mikro</h4>
+          <p>Sadono Sukirno</p>
+        </div>
+        <div class="book-card" data-category="sejarah">
+          <h4>Sejarah Dunia</h4>
+          <p>H.G. Wells</p>
+        </div>
+        <div class="book-card" data-category="ensiklopedia">
+          <h4>Ensiklopedia Fauna</h4>
+          <p>Tim Elex Media</p>
+        </div>
+        <div class="book-card" data-category="fiksi">
+          <h4>Laskar Pelangi</h4>
+          <p>Andrea Hirata</p>
+        </div>
+      </div>
+      <div class="not-found" id="notFound">Buku tidak ditemukan.</div>
+    </div>
+
+    <script>
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const bookCards = document.querySelectorAll(".book-card");
+      const searchInput = document.getElementById("searchInput");
+      const notFound = document.getElementById("notFound");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+
+          const category = button.getAttribute("data-category");
+
+          let found = false;
+          bookCards.forEach((card) => {
+            const cardCategory = card.getAttribute("data-category");
+            if (category === "all" || cardCategory === category) {
+              card.style.display = "block";
+              found = true;
+            } else {
+              card.style.display = "none";
+            }
+          });
+
+          notFound.style.display = found ? "none" : "block";
+        });
+      });
+
+      searchInput.addEventListener("input", () => {
+        const query = searchInput.value.toLowerCase();
+        let found = false;
+
+        bookCards.forEach((card) => {
+          const title = card.querySelector("h4").textContent.toLowerCase();
+          const author = card.querySelector("p").textContent.toLowerCase();
+          if (title.includes(query) || author.includes(query)) {
+            card.style.display = "block";
+            found = true;
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        notFound.style.display = found ? "none" : "block";
+      });
+
+      function navigate(menu) {
+        alert('Menu "' + menu + '" belum tersedia sepenuhnya.');
+      }
+    </script>
+  </body>
+</html>
