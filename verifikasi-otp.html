@@ -148,7 +148,16 @@
         <p class="subtext">Masukkan Kode OTP</p>
 
         <form id="form-otp" class="otp-form">
-          <input type="text" name="otp" placeholder="OTP" required />
+          <input
+            type="text"
+            id="otp"
+            name="otp"
+            maxlength="6"
+            pattern="\d{6}"
+            inputmode="numeric"
+            placeholder="OTP"
+            required
+          />
           <button type="submit" class="verify-btn">VERIFY</button>
         </form>
       </div>
@@ -177,6 +186,10 @@
         } else {
           alert("Harap isi semua data dengan benar.");
         }
+      });
+      const otpInput = document.getElementById("otp");
+      otpInput.addEventListener("input", function () {
+        this.value = this.value.replace(/\D/g, "").slice(0, 6);
       });
     </script>
   </body>
