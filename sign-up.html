@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Perpustakaan Kopi</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Montserrat, "Segoe UI", sans-serif;
+      }
+
+      body,
+      html {
+        height: 100%;
+      }
+
+      .container {
+        display: flex;
+        height: 100vh;
+      }
+
+      .left-panel,
+      .right-panel {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+      }
+
+      .left-panel {
+        background-color: #2196f3;
+        color: white;
+        border-top-right-radius: 100px;
+        border-bottom-right-radius: 100px;
+        text-align: center;
+      }
+
+      .right-panel {
+        background-color: white;
+      }
+
+      .logo {
+        width: 80px;
+        margin-bottom: 20px;
+      }
+
+      .left-panel h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .left-panel p {
+        margin-bottom: 20px;
+      }
+
+      .btn-signin {
+        padding: 12px 24px;
+        border: 2px solid #fff;
+        background: transparent;
+        color: #fff;
+        border-radius: 15px;
+        font-size: 16px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease, transform 0.3s ease;
+      }
+
+      .btn-signin:hover {
+        background-color: white;
+        color: #2196f3;
+      }
+
+      .right-panel h1 {
+        font-size: 32px;
+        color: #2196f3;
+        margin-bottom: 10px;
+      }
+
+      .info-text {
+        color: #2196f3;
+        margin-bottom: 30px;
+      }
+
+      form {
+        width: 80%;
+        max-width: 600px;
+      }
+
+      .input-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 15px;
+      }
+
+      .input-row input {
+        flex: 1;
+        padding: 12px;
+        border: 1px solid #888;
+        border-radius: 10px;
+        font-size: 16px;
+      }
+
+      .btn-signup {
+        background-color: #2196f3;
+        color: white;
+        padding: 14px;
+        width: 100%;
+        border: none;
+        border-radius: 15px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: all 0.3s ease, transform 0.3s ease;
+      }
+
+      .btn-signup:hover {
+        background-color: #e0e0e0;
+        color: #2196f3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-panel">
+        <img src="images/logo-putih.svg" alt="Logo" class="logo" />
+        <h2>PERPUSTAKAAN DAFFA</h2>
+        <p>Sudah Memiliki Akun? Sign in Sekarang</p>
+        <a href="login.html" class="btn-signin">SIGN IN</a>
+      </div>
+      <div class="right-panel">
+        <h1>Sign Up</h1>
+        <p class="info-text">Masukkan Informasi untuk Mendaftar</p>
+        <form id="sign-up-form">
+          <div class="input-row">
+            <input
+              type="text"
+              name="firstName"
+              placeholder="Nama Depan"
+              required
+            />
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Nama Belakang"
+              required
+            />
+          </div>
+          <div class="input-row">
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Nomor Telepon"
+              required
+            />
+            <input type="email" name="email" placeholder="Email" required />
+          </div>
+          <div class="input-row">
+            <input
+              type="text"
+              name="username"
+              placeholder="Nama Pengguna"
+              required
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn-signup">SIGN UP</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById("sign-up-form");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const username = form.username.value.trim();
+        const email = form.email.value.trim();
+        const password = form.password.value.trim();
+
+        if (username && email && password) {
+          // Simpan data dummy (simulasi pendaftaran)
+          localStorage.setItem("userData", JSON.stringify({ username, email }));
+
+          alert("Pendaftaran berhasil! Selamat datang, " + username);
+          window.location.href = "index.html"; // Redirect ke halaman utama
+        } else {
+          alert("Harap isi semua data dengan benar.");
+        }
+      });
+    </script>
+  </body>
+</html>
