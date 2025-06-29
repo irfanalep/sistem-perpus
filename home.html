@@ -13,7 +13,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-    <link rel="stylesheet" href="style-home.css" />
+    <link rel="stylesheet" href="styles/style-home.css" />
   </head>
   <body>
     <div class="sidebar">
@@ -58,27 +58,56 @@
       <div class="content">
         <div class="left-content">
           <div class="actions">
-            <div class="card action-button">
+            <div
+              class="card action-button"
+              onclick="navigateTo('katalog.html')"
+            >
               <img src="images/ikon-pinjam.svg" width="40" />
               <span>List Buku Yang Dipinjam</span>
             </div>
-            <div class="card action-button">
+            <div
+              class="card action-button"
+              onclick="navigateTo('katalog.html')"
+            >
               <img src="images/ikon-kembali.svg" width="40" />
               <span>Buku Yang Dikembalikan</span>
             </div>
+            <div class="card action-button" onclick="navigateTo('buku.html')">
+              <img src="images/ikon-cari.svg" width="40" />
+              <span>Cari Buku Yang Tersedia</span>
+            </div>
           </div>
-          <div class="card action-button">
-            <img src="images/ikon-cari.svg" width="40" />
-            <span>Cari Buku Yang Tersedia</span>
-          </div>
-          <div class="card quote">
-            <p>
-              “Kekuatan paling kuat di dunia adalah kata-kata yang tertulis di
-              atas kertas.”
-            </p>
-            <p style="text-align: right; color: #444; font-size: 14px">
-              ~ Daffa (Kayaknya)
-            </p>
+
+          <div class="quote-wrapper">
+            <div class="card quote active">
+              <p>
+                “Beri aku empat pemuda, niscaya akan kuguncangkan lane of dawn.”
+              </p>
+              <p class="author">~ Daffa (047)</p>
+            </div>
+
+            <div class="card quote">
+              <p>“Yang sudah boleh pulang.”</p>
+              <p class="author">~ Dimas (061)</p>
+            </div>
+
+            <div class="card quote">
+              <p>“Seribu kawan terlalu sedikit, satu lawan terlalu banyak.”</p>
+              <p class="author">~ Irfan (049)</p>
+            </div>
+
+            <div class="card quote">
+              <p>
+                “Anda bukan bayi, batita, ataupun balita. Jadi jangan tidur
+                siang.”
+              </p>
+              <p class="author">~ Rafif (043)</p>
+            </div>
+
+            <div class="card quote">
+              <p>“We walk the talk, not only talk the talk.”</p>
+              <p class="author">~ Rasyid (069)</p>
+            </div>
           </div>
         </div>
 
@@ -86,137 +115,108 @@
           <div class="card book-section">
             <h3>Rekomendasi Buku</h3>
             <p>Temukan Rekomendasi Bacaan!</p>
-             <!-- Swiper container -->
-  <div class="swiper book-swiper">
-    <div class="swiper-wrapper">
-      <div class="book-card swiper-slide">
-        <img src="images/buku-rekomen-satu.jpg" alt="Buku Rekomen 1" />
-      </div>
-      <div class="book-card swiper-slide">
-        <img src="images/buku-rekomen-dua.jpg" alt="Buku Rekomen 2" />
-      </div>
-      <div class="book-card swiper-slide">
-        <img src="images/buku-rekomen-tiga.jpg" alt="Buku Rekomen 3" />
-      </div>
-      <div class="book-card swiper-slide">
-        <img src="images/buku-rekomen-empat.jpg" alt="Buku Rekomen 4" />
-      </div>
-      <div class="book-card swiper-slide">
-        <img src="images/buku-rekomen-lima.jpeg" alt="Buku Rekomen 5" />
-      </div>
-      <div class="book-card swiper-slide">
-        <img src="images/buku-rekomen-enam.jpg" alt="Buku Rekomen 6" />
-      </div>
-    </div>
+            <!-- Swiper container -->
+            <div class="swiper book-swiper">
+              <div class="swiper-wrapper">
+                <div class="book-card swiper-slide">
+                  <img
+                    src="images/buku-rekomen-satu.jpg"
+                    alt="Buku Rekomen 1"
+                  />
+                </div>
+                <div class="book-card swiper-slide">
+                  <img src="images/buku-rekomen-dua.jpg" alt="Buku Rekomen 2" />
+                </div>
+                <div class="book-card swiper-slide">
+                  <img
+                    src="images/buku-rekomen-tiga.jpg"
+                    alt="Buku Rekomen 3"
+                  />
+                </div>
+                <div class="book-card swiper-slide">
+                  <img
+                    src="images/buku-rekomen-empat.jpg"
+                    alt="Buku Rekomen 4"
+                  />
+                </div>
+                <div class="book-card swiper-slide">
+                  <img
+                    src="images/buku-rekomen-lima.jpeg"
+                    alt="Buku Rekomen 5"
+                  />
+                </div>
+                <div class="book-card swiper-slide">
+                  <img
+                    src="images/buku-rekomen-enam.jpg"
+                    alt="Buku Rekomen 6"
+                  />
+                </div>
+              </div>
 
-    <!-- Navigation & Pagination -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-pagination"></div>
-  </div>
+              <!-- Navigation & Pagination -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-pagination"></div>
+            </div>
           </div>
 
           <div class="card book-section">
-  <h3>Paling Banyak Dibaca</h3>
-  <p>Lihat Buku Populer Saat Ini!</p>
-  
-  <!-- Swiper container -->
-  <div class="swiper book-swiper">
-    <div class="swiper-wrapper">
-      <div class="book-card swiper-slide">
-        <img src="images/buku-populer-satu.jpg" alt="Buku Populer 1" />
+            <h3>Paling Banyak Dibaca</h3>
+            <p>Lihat Buku Populer Saat Ini!</p>
+
+            <!-- Swiper container -->
+            <div class="swiper book-swiper">
+              <div class="swiper-wrapper">
+                <div class="book-card swiper-slide">
+                  <img
+                    src="images/buku-populer-satu.jpg"
+                    alt="Buku Populer 1"
+                  />
+                </div>
+                <div class="book-card swiper-slide">
+                  <img src="images/buku-populer-dua.png" alt="Buku Populer 2" />
+                </div>
+                <div class="book-card swiper-slide">
+                  <img
+                    src="images/buku-populer-tiga.jpg"
+                    alt="Buku Populer 3"
+                  />
+                </div>
+                <div class="book-card swiper-slide">
+                  <img
+                    src="images/buku-populer-empat.jpg"
+                    alt="Buku Populer 4"
+                  />
+                </div>
+                <div class="book-card swiper-slide">
+                  <img
+                    src="images/buku-populer-lima.jpg"
+                    alt="Buku Populer 5"
+                  />
+                </div>
+                <div class="book-card swiper-slide">
+                  <img
+                    src="images/buku-populer-enam.jpg"
+                    alt="Buku Populer 6"
+                  />
+                </div>
+              </div>
+
+              <!-- Navigation & Pagination -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="book-card swiper-slide">
-        <img src="images/buku-populer-dua.png" alt="Buku Populer 2" />
-      </div>
-      <div class="book-card swiper-slide">
-        <img src="images/buku-populer-tiga.jpg" alt="Buku Populer 3" />
-      </div>
-      <div class="book-card swiper-slide">
-        <img src="images/buku-populer-empat.jpg" alt="Buku Populer 4" />
-      </div>
-      <div class="book-card swiper-slide">
-        <img src="images/buku-populer-lima.jpg" alt="Buku Populer 5" />
-      </div>
-      <div class="book-card swiper-slide">
-        <img src="images/buku-populer-enam.jpg" alt="Buku Populer 6" />
-      </div>
+
+      <script src="https://unpkg.com/feather-icons"></script>
+      <script>
+        feather.replace();
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      <script src="scripts/pages/script-home.js"></script>
     </div>
-
-    <!-- Navigation & Pagination -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-pagination"></div>
-  </div>
-</div>
-
-      </div>
-    </div>
-
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script>
-      feather.replace();
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-      document.querySelectorAll('.book-swiper').forEach((el) => {
-  new Swiper(el, {
-    slidesPerView: 3,
-    spaceBetween: 20,
-    loop: true, // ubah ke false dulu agar tidak error saat item kurang
-    navigation: {
-      nextEl: el.querySelector('.swiper-button-next'),
-      prevEl: el.querySelector('.swiper-button-prev'),
-    },
-    pagination: {
-      el: el.querySelector('.swiper-pagination'),
-      clickable: true,
-      dynamicBulets: true
-    },
-    breakpoints: {
-      0: { slidesPerView: 1 },
-      640: { slidesPerView: 2 },
-      1024: { slidesPerView: 3 },
-    },
-  });
-});
-    </script>
-
-    <script>
-function updateDateTime() {
-  const now = new Date();
-
-  const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-  const months = [
-    'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
-    'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
-  ];
-
-  const dayName = days[now.getDay()];
-  const day = now.getDate();
-  const month = months[now.getMonth()];
-  const year = now.getFullYear();
-
-  const hours = now.getHours().toString().padStart(2, '0');
-  const minutes = now.getMinutes().toString().padStart(2, '0');
-  const seconds = now.getSeconds().toString().padStart(2, '0');
-
-  const timeString = `${hours}:${minutes}:${seconds}`;
-  const dateString = `${dayName}, ${day} ${month} ${year}`;
-
-  document.getElementById('datetime-display').innerHTML = `${timeString}<br>${dateString}`;
-}
-
-// Update setiap 1 detik
-setInterval(updateDateTime, 1000);
-updateDateTime(); // panggil sekali saat halaman pertama dibuka
-</script>
-
-<script>
-  function navigateTo(page) {
-    window.location.href = page;
-  }
-</script>
-
   </body>
 </html>
