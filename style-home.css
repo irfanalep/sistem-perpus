@@ -1,0 +1,269 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Montserrat, "Segoe UI", sans-serif;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #2196f3;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sidebar-header img {
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+.sidebar-header h2 {
+  font-size: 14px;
+}
+
+.sidebar-menu {
+  list-style: none;
+}
+
+.sidebar-menu li {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: white;
+}
+
+.sidebar-menu li:hover,
+.sidebar-menu li.active {
+  background-color: white;
+  color: #2196f3;
+}
+
+.sidebar-menu li i {
+  margin-right: 10px;
+}
+
+.sidebar-menu li .icon {
+  display: inline-flex;
+  width: 24px;
+  margin-right: 12px;
+}
+
+.sidebar-menu li .icon i {
+  width: 100%;
+}
+
+.sidebar-menu li .label {
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.sidebar-menu li span {
+  font-weight: 500;
+}
+
+.logout {
+  margin-top: auto;
+}
+
+.main {
+  flex: 1;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-info strong {
+  font-size: 16px;
+}
+
+.topbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.content {
+  margin: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.left-content {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+}
+
+.action-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.quote {
+  font-size: 18px;
+  color: #2196f3;
+  text-align: center;
+}
+
+.right-content {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.book-section h3 {
+  margin-bottom: 5px;
+}
+
+.book-swiper {
+  max-width: 360px;
+  position: relative;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.swiper-wrapper {
+  align-items: stretch;
+}
+
+.book-card {
+  scroll-snap-align: start;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  width: 120px !important;
+  flex-shrink: 0;
+}
+
+.book-card img {
+  width: 100%;
+  height: 145px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  width: 24px;
+  height: 24px;
+  background-color: #2196f3; /* Warna latar belakang */
+  border-radius: 50%;
+  color: white;
+  top: 55%;
+  transform: translateY(-50%);
+  z-index: 10;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 14px; /* ini yang memperkecil ikon panah */
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.swiper-button-prev::after {
+  margin-right: 2px;
+}
+
+.swiper-button-next::after {
+  margin-left: 2px;
+}
+
+/* Hover effect */
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: #007bff; /* latar berubah */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* bayangan lebih dalam */
+}
+
+.swiper-button-prev:hover::after,
+.swiper-button-next:hover::after {
+  color: #e0e0e0; /* ikon jadi putih */
+}
+
+.swiper-button-prev {
+  left: 0;
+}
+
+.swiper-button-next {
+  right: 0;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.swiper {
+  overflow: hidden;
+}
+
+.swiper-pagination {
+  margin-top: 15px;
+  position: relative;
+  bottom: auto;
+}
+
+.swiper-pagination-bullet {
+  opacity: 0.5;
+  background: #2196f3;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
